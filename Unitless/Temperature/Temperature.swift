@@ -26,4 +26,5 @@ public protocol Temperature: Comparable, Hashable {
 	static var absoluteZero: Self { get }
 	static var waterFreezingPoint: Self { get }
 	static var waterBoilingPoint: Self { get }
+	static var waterTriplePoint: Self { get }
 }
