@@ -17,9 +17,9 @@ public protocol Temperature: Comparable, Hashable {
 	
 	// MARK: Initializers
 	
-	init(kelvin: Double)
-	init(celsius: Double)
-	init(fahrenheit: Double)
+	init?(kelvin: Double)
+	init?(celsius: Double)
+	init?(fahrenheit: Double)
 	
 	// MARK: Constants
 	
