@@ -9,6 +9,7 @@
 import Foundation
 
 public protocol Temperature: Comparable, Hashable {
+
 	// MARK: Conversions
 	
 	var kelvin: Double { get }

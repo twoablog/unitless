@@ -9,6 +9,7 @@
 import Foundation
 
 extension Double {
+	
 	// MARK: Conversions
 	
 	public func kelvin<T: Temperature>() -> T? {
