@@ -127,6 +127,65 @@ class TemperatureTests<T: Temperature> {
 		XCTAssertEqual(temperature.celsius, 0.01)
 	}
 	
+	// MARK: Test `Comparable`
+	
+	func testComparison() {
+		guard
+			let temperature1 = T(kelvin: 42.0),
+			let temperature2 = T(kelvin: 42.0),
+			let temperature3 = T(kelvin: 1000000.0)
+		else {
+			XCTFail("Could not initialize temperature values.")
+			return
+		}
+		
+		XCTAssertTrue(temperature1 == temperature2)
+		XCTAssertTrue(temperature1 <= temperature2)
+		XCTAssertTrue(temperature1 >= temperature2)
+		
+		XCTAssertFalse(temperature1 != temperature2)
+		XCTAssertFalse(temperature1 <  temperature2)
+		XCTAssertFalse(temperature1 >  temperature2)
+		
+		XCTAssertTrue(temperature1 != temperature3)
+		XCTAssertTrue(temperature1 <= temperature3)
+		XCTAssertTrue(temperature1 <  temperature3)
+		XCTAssertTrue(temperature3 >= temperature1)
+		XCTAssertTrue(temperature3 >  temperature1)
+		
+		XCTAssertFalse(temperature1 == temperature3)
+		XCTAssertFalse(temperature1 >= temperature3)
+		XCTAssertFalse(temperature1 >  temperature3)
+		XCTAssertFalse(temperature3 <= temperature1)
+		XCTAssertFalse(temperature3 <  temperature1)
+	}
+	
+	// MARK: Test `Hashable`
+	
+	func testHashing() {
+		guard
+			let temperature1 = T(celsius: 0.0),
+			let temperature2 = T(celsius: 28.0),
+			let temperature3 = T(celsius: 100.0),
+			let temperature4 = T(celsius: -300.0)
+		else {
+			XCTFail("Could not initialize temperature values.")
+			return
+		}
+		
+		let temperatures: [T: String] = [
+			temperature1: "cold",
+			temperature2: "room temperature",
+			temperature3: "hot"
+		]
+		
+		XCTAssertEqual(temperatures[temperature1], "cold")
+		XCTAssertEqual(temperatures[temperature2], "room temperature")
+		XCTAssertEqual(temperatures[temperature3], "hot")
+		
+		XCTAssertNil(temperatures[temperature4])
+	}
+	
 	// MARK: Test `Double` extensions
 	
 	func testDoubleConversionAsKelvin() {
