@@ -1,5 +1,5 @@
 //
-//  Temperature.swift
+//  TemperatureProtocol.swift
 //  Unitless
 //
 //  Created by Tomás Silveira Salles on 13.08.18.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol Temperature: Comparable, Hashable {
+public protocol TemperatureProtocol: Comparable, Hashable {
 
 	// MARK: Conversions
 	

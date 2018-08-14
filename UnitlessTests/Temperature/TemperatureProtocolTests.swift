@@ -1,5 +1,5 @@
 //
-//  TemperatureTests.swift
+//  TemperatureProtocolTests.swift
 //  UnitlessTests
 //
 //  Created by Tomás Silveira Salles on 13.08.18.
@@ -39,7 +39,7 @@ fileprivate enum Helper {
 	}
 }
 
-class TemperatureTests<T: Temperature> {
+class TemperatureProtocolTests<T: TemperatureProtocol> {
 	
 	// MARK: Test initializers
 	
