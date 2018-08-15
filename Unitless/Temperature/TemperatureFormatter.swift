@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct TemperatureFormatter: TemperatureFormatterProtocol {
+public struct TemperatureFormatter: TemperatureFormatterProtocol { // TODO: Add precision (as in number of relevant digits) with rounding
 	public enum Format {
 		case kelvin
 		case celsius
@@ -20,11 +20,11 @@ public struct TemperatureFormatter: TemperatureFormatterProtocol {
 	public func toString<T>(_ temperature: T) -> String where T : TemperatureProtocol {
 		switch format {
 		case .kelvin:
-			return "\(temperature.kelvin)K"
+			return "\(temperature.kelvin) K"
 		case .celsius:
-			return "\(temperature.celsius)°C"
+			return "\(temperature.celsius) °C"
 		case .fahrenheit:
-			return "\(temperature.fahrenheit)°F"
+			return "\(temperature.fahrenheit) °F"
 		}
 	}
 }
