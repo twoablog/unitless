@@ -41,6 +41,7 @@ fileprivate enum Helper {
 
 class TemperatureImplementationTests<T: TemperatureProtocol> {
 	let message = "Implementation: \(T.self)"
+	let accuracy = 1e-13
 	
 	// MARK: Test initializers
 	
@@ -61,71 +62,85 @@ class TemperatureImplementationTests<T: TemperatureProtocol> {
 	// MARK: Test conversions
 	
 	func testConversionsFromKelvin() {
-		let temperature1 = T(kelvin: 42.0)
-		XCTAssertEqual(temperature1?.kelvin, 42.0, message)
-		XCTAssertEqual(temperature1?.celsius, Helper.kelvinToCelsius(42.0), message)
-		XCTAssertEqual(temperature1?.fahrenheit, Helper.kelvinToFahrenheit(42.0), message)
+		guard
+			let temperature1 = T(kelvin: 42.0),
+			let temperature2 = T(kelvin: 0.0)
+		else {
+			XCTFail("Could not initialize temperature values. " + message)
+			return
+		}
 		
-		let temperature2 = T(kelvin: 0.0)
-		XCTAssertEqual(temperature2?.kelvin, 0.0, message)
-		XCTAssertEqual(temperature2?.celsius, Helper.kelvinToCelsius(0.0), message)
-		XCTAssertEqual(temperature2?.fahrenheit, Helper.kelvinToFahrenheit(0.0), message)
+		XCTAssertEqual(temperature1.kelvin, 42.0, accuracy: accuracy, message)
+		XCTAssertEqual(temperature1.celsius, Helper.kelvinToCelsius(42.0), accuracy: accuracy, message)
+		XCTAssertEqual(temperature1.fahrenheit, Helper.kelvinToFahrenheit(42.0), accuracy: accuracy, message)
+		
+		XCTAssertEqual(temperature2.kelvin, 0.0, accuracy: accuracy, message)
+		XCTAssertEqual(temperature2.celsius, Helper.kelvinToCelsius(0.0), accuracy: accuracy, message)
+		XCTAssertEqual(temperature2.fahrenheit, Helper.kelvinToFahrenheit(0.0), accuracy: accuracy, message)
 	}
 	
 	func testConversionsFromCelsius() {
-		let temperature1 = T(celsius: 42.0)
-		XCTAssertEqual(temperature1?.kelvin, Helper.celsiusToKelvin(42.0), message)
-		XCTAssertEqual(temperature1?.celsius, 42.0, message)
-		XCTAssertEqual(temperature1?.fahrenheit, Helper.celsiusToFahrenheit(42.0), message)
+		guard
+			let temperature1 = T(celsius: 42.0),
+			let temperature2 = T(celsius: -99.0),
+			let temperature3 = T(celsius: -273.15)
+		else {
+			XCTFail("Could not initialize temperature values. " + message)
+			return
+		}
 		
-		let temperature2 = T(celsius: -99.0)
-		XCTAssertEqual(temperature2?.kelvin, Helper.celsiusToKelvin(-99.0), message)
-		XCTAssertEqual(temperature2?.celsius, -99.0, message)
-		XCTAssertEqual(temperature2?.fahrenheit, Helper.celsiusToFahrenheit(-99.0), message)
+		XCTAssertEqual(temperature1.kelvin, Helper.celsiusToKelvin(42.0), accuracy: accuracy, message)
+		XCTAssertEqual(temperature1.celsius, 42.0, accuracy: accuracy, message)
+		XCTAssertEqual(temperature1.fahrenheit, Helper.celsiusToFahrenheit(42.0), accuracy: accuracy, message)
 		
-		let temperature3 = T(celsius: -273.15)
-		XCTAssertEqual(temperature3?.kelvin, Helper.celsiusToKelvin(-273.15), message)
-		XCTAssertEqual(temperature3?.celsius, -273.15, message)
-		XCTAssertEqual(temperature3?.fahrenheit, Helper.celsiusToFahrenheit(-273.15), message)
+		XCTAssertEqual(temperature2.kelvin, Helper.celsiusToKelvin(-99.0), accuracy: accuracy, message)
+		XCTAssertEqual(temperature2.celsius, -99.0, accuracy: accuracy, message)
+		XCTAssertEqual(temperature2.fahrenheit, Helper.celsiusToFahrenheit(-99.0), accuracy: accuracy, message)
+		
+		XCTAssertEqual(temperature3.kelvin, Helper.celsiusToKelvin(-273.15), accuracy: accuracy, message)
+		XCTAssertEqual(temperature3.celsius, -273.15, accuracy: accuracy, message)
+		XCTAssertEqual(temperature3.fahrenheit, Helper.celsiusToFahrenheit(-273.15), accuracy: accuracy, message)
 	}
 	
 	func testConversionsFromFahrenheit() {
-		let temperature1 = T(fahrenheit: 42.0)
-		XCTAssertEqual(temperature1?.kelvin, Helper.fahrenheitToKelvin(42.0), message)
-		XCTAssertEqual(temperature1?.celsius, Helper.fahrenheitToCelsius(42.0), message)
-		XCTAssertEqual(temperature1?.fahrenheit, 42.0, message)
+		guard
+			let temperature1 = T(fahrenheit: 42.0),
+			let temperature2 = T(fahrenheit: -99.0),
+			let temperature3 = T(fahrenheit: -459.67)
+		else {
+			XCTFail("Could not initialize temperature values. " + message)
+			return
+		}
 		
-		let temperature2 = T(fahrenheit: -99.0)
-		XCTAssertEqual(temperature2?.kelvin, Helper.fahrenheitToKelvin(-99.0), message)
-		XCTAssertEqual(temperature2?.celsius, Helper.fahrenheitToCelsius(-99.0), message)
-		XCTAssertEqual(temperature2?.fahrenheit, -99.0, message)
+		XCTAssertEqual(temperature1.kelvin, Helper.fahrenheitToKelvin(42.0), accuracy: accuracy, message)
+		XCTAssertEqual(temperature1.celsius, Helper.fahrenheitToCelsius(42.0), accuracy: accuracy, message)
+		XCTAssertEqual(temperature1.fahrenheit, 42.0, accuracy: accuracy, message)
 		
-		let temperature3 = T(fahrenheit: -459.67)
-		XCTAssertEqual(temperature3?.kelvin, Helper.fahrenheitToKelvin(-459.67), message)
-		XCTAssertEqual(temperature3?.celsius, Helper.fahrenheitToCelsius(-459.67), message)
-		XCTAssertEqual(temperature3?.fahrenheit, -459.67, message)
+		XCTAssertEqual(temperature2.kelvin, Helper.fahrenheitToKelvin(-99.0), accuracy: accuracy, message)
+		XCTAssertEqual(temperature2.celsius, Helper.fahrenheitToCelsius(-99.0), accuracy: accuracy, message)
+		XCTAssertEqual(temperature2.fahrenheit, -99.0, accuracy: accuracy, message)
+		
+		XCTAssertEqual(temperature3.kelvin, Helper.fahrenheitToKelvin(-459.67), accuracy: accuracy, message)
+		XCTAssertEqual(temperature3.celsius, Helper.fahrenheitToCelsius(-459.67), accuracy: accuracy, message)
+		XCTAssertEqual(temperature3.fahrenheit, -459.67, accuracy: accuracy, message)
 	}
 	
 	// MARK: Test constants
 	
 	func testAbsoluteZero() {
-		let temperature = T.absoluteZero
-		XCTAssertEqual(temperature.kelvin, 0.0, message)
+		XCTAssertEqual(T.absoluteZero.kelvin, 0.0, accuracy: accuracy, message)
 	}
 	
 	func testWaterFreezingPoint() {
-		let temperature = T.waterFreezingPoint
-		XCTAssertEqual(temperature.celsius, 0.0, message)
+		XCTAssertEqual(T.waterFreezingPoint.celsius, 0.0, accuracy: accuracy, message)
 	}
 	
 	func testWaterBoilingPoint() {
-		let temperature = T.waterBoilingPoint
-		XCTAssertEqual(temperature.celsius, 100.0, message)
+		XCTAssertEqual(T.waterBoilingPoint.celsius, 100.0, accuracy: accuracy, message)
 	}
 	
 	func testWaterTriplePoint() {
-		let temperature = T.waterTriplePoint
-		XCTAssertEqual(temperature.celsius, 0.01, message)
+		XCTAssertEqual(T.waterTriplePoint.celsius, 0.01, accuracy: accuracy, message)
 	}
 	
 	// MARK: Test `Comparable`
@@ -165,42 +180,60 @@ class TemperatureImplementationTests<T: TemperatureProtocol> {
 	
 	func testDoubleConversionAsKelvin() {
 		let value1: Double = 42.0
-		let temperature1: T? = value1.kelvin()
-		XCTAssertEqual(temperature1?.kelvin, value1, message)
-		
 		let value2: Double = 0.0
-		let temperature2: T? = value2.kelvin()
-		XCTAssertEqual(temperature2?.kelvin, value2, message)
-		
 		let value3: Double = -0.001
+		
+		guard
+			let temperature1: T = value1.kelvin(),
+			let temperature2: T = value2.kelvin()
+		else {
+			XCTFail("Could not initialize temperature values. " + message)
+			return
+		}
+		
+		XCTAssertEqual(temperature1.kelvin, value1, accuracy: accuracy, message)
+		XCTAssertEqual(temperature2.kelvin, value2, accuracy: accuracy, message)
+		
 		let temperature3: T? = value3.kelvin()
 		XCTAssertNil(temperature3, message)
 	}
 	
 	func testDoubleConversionAsCelsius() {
 		let value1: Double = 42.0
-		let temperature1: T? = value1.celsius()
-		XCTAssertEqual(temperature1?.celsius, value1, message)
-		
 		let value2: Double = -273.15
-		let temperature2: T? = value2.celsius()
-		XCTAssertEqual(temperature2?.celsius, value2, message)
-		
 		let value3: Double = -273.151
+		
+		guard
+			let temperature1: T = value1.celsius(),
+			let temperature2: T = value2.celsius()
+		else {
+			XCTFail("Could not initialize temperature values. " + message)
+			return
+		}
+		
+		XCTAssertEqual(temperature1.celsius, value1, accuracy: accuracy, message)
+		XCTAssertEqual(temperature2.celsius, value2, accuracy: accuracy, message)
+		
 		let temperature3: T? = value3.celsius()
 		XCTAssertNil(temperature3, message)
 	}
 	
 	func testDoubleConversionAsFahrenheit() {
 		let value1: Double = 42.0
-		let temperature1: T? = value1.fahrenheit()
-		XCTAssertEqual(temperature1?.fahrenheit, value1, message)
-		
 		let value2: Double = -459.67
-		let temperature2: T? = value2.fahrenheit()
-		XCTAssertEqual(temperature2?.fahrenheit, value2, message)
-		
 		let value3: Double = -459.671
+		
+		guard
+			let temperature1: T = value1.fahrenheit(),
+			let temperature2: T = value2.fahrenheit()
+		else {
+			XCTFail("Could not initialize temperature values. " + message)
+			return
+		}
+		
+		XCTAssertEqual(temperature1.fahrenheit, value1, accuracy: accuracy, message)
+		XCTAssertEqual(temperature2.fahrenheit, value2, accuracy: accuracy, message)
+		
 		let temperature3: T? = value3.fahrenheit()
 		XCTAssertNil(temperature3, message)
 	}
