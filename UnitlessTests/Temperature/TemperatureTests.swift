@@ -46,10 +46,6 @@ class TemperatureTests: XCTestCase {
 		TemperatureImplementationTests<Temperature>().testComparison()
 	}
 	
-	func testHashing() {
-		TemperatureImplementationTests<Temperature>().testHashing()
-	}
-	
 	func testDoubleConversionAsKelvin() {
 		TemperatureImplementationTests<Temperature>().testDoubleConversionAsKelvin()
 	}

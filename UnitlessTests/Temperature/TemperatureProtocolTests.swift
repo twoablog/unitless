@@ -161,32 +161,6 @@ class TemperatureImplementationTests<T: TemperatureProtocol> {
 		XCTAssertFalse(temperature3 <  temperature1, message)
 	}
 	
-	// MARK: Test `Hashable`
-	
-	func testHashing() {
-		guard
-			let temperature1 = T(celsius: 0.0),
-			let temperature2 = T(celsius: 28.0),
-			let temperature3 = T(celsius: 100.0),
-			let temperature4 = T(celsius: -30.0)
-		else {
-			XCTFail("Could not initialize temperature values. " + message)
-			return
-		}
-		
-		let temperatures: [T: String] = [
-			temperature1: "cold",
-			temperature2: "room temperature",
-			temperature3: "hot"
-		]
-		
-		XCTAssertEqual(temperatures[temperature1], "cold", message)
-		XCTAssertEqual(temperatures[temperature2], "room temperature", message)
-		XCTAssertEqual(temperatures[temperature3], "hot", message)
-		
-		XCTAssertNil(temperatures[temperature4], message)
-	}
-	
 	// MARK: Test `Double` extensions
 	
 	func testDoubleConversionAsKelvin() {

@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol TemperatureProtocol: Comparable, Hashable {
+public protocol TemperatureProtocol: Comparable {
 
 	// MARK: Conversions
 	
