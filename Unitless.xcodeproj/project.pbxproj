@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7C3FA1C121135D9800FF3C4F /* Unitless.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C3FA1B721135D9800FF3C4F /* Unitless.framework */; };
 		7C3FA1C821135D9800FF3C4F /* Unitless.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C3FA1BA21135D9800FF3C4F /* Unitless.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7C5A15CC2123708E00D1EE18 /* Temperature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5A15CB2123708E00D1EE18 /* Temperature.swift */; };
 		7CCF69A22121693900BE5880 /* TemperatureProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCF69A12121693900BE5880 /* TemperatureProtocol.swift */; };
 		7CCF69A5212169CF00BE5880 /* TemperatureProtocolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCF69A4212169CF00BE5880 /* TemperatureProtocolTests.swift */; };
 		7CCF69A72121A83500BE5880 /* Double+TemperatureProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCF69A62121A83500BE5880 /* Double+TemperatureProtocol.swift */; };
@@ -30,6 +31,7 @@
 		7C3FA1BB21135D9800FF3C4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7C3FA1C021135D9800FF3C4F /* UnitlessTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitlessTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C3FA1C721135D9800FF3C4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7C5A15CB2123708E00D1EE18 /* Temperature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temperature.swift; sourceTree = "<group>"; };
 		7CCF69A12121693900BE5880 /* TemperatureProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureProtocol.swift; sourceTree = "<group>"; };
 		7CCF69A4212169CF00BE5880 /* TemperatureProtocolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureProtocolTests.swift; sourceTree = "<group>"; };
 		7CCF69A62121A83500BE5880 /* Double+TemperatureProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+TemperatureProtocol.swift"; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 			children = (
 				7CCF69A12121693900BE5880 /* TemperatureProtocol.swift */,
 				7CCF69A62121A83500BE5880 /* Double+TemperatureProtocol.swift */,
+				7C5A15CB2123708E00D1EE18 /* Temperature.swift */,
 			);
 			path = Temperature;
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 			files = (
 				7CCF69A72121A83500BE5880 /* Double+TemperatureProtocol.swift in Sources */,
 				7CCF69A22121693900BE5880 /* TemperatureProtocol.swift in Sources */,
+				7C5A15CC2123708E00D1EE18 /* Temperature.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
