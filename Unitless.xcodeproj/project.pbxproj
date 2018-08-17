@@ -8,8 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		7C3FA1C121135D9800FF3C4F /* Unitless.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C3FA1B721135D9800FF3C4F /* Unitless.framework */; };
-		7C3FA1C621135D9800FF3C4F /* UnitlessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3FA1C521135D9800FF3C4F /* UnitlessTests.swift */; };
 		7C3FA1C821135D9800FF3C4F /* Unitless.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C3FA1BA21135D9800FF3C4F /* Unitless.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7C5A15CC2123708E00D1EE18 /* Temperature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5A15CB2123708E00D1EE18 /* Temperature.swift */; };
+		7C5A15CE212377D900D1EE18 /* TemperatureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5A15CD212377D900D1EE18 /* TemperatureTests.swift */; };
+		7C5A15D02124448B00D1EE18 /* TemperatureFormatterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5A15CF2124448B00D1EE18 /* TemperatureFormatterProtocol.swift */; };
+		7C5A15D22124481500D1EE18 /* TemperatureFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5A15D12124481500D1EE18 /* TemperatureFormatter.swift */; };
+		7C5A15D4212448AE00D1EE18 /* TemperatureFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5A15D3212448AE00D1EE18 /* TemperatureFormatterTests.swift */; };
+		7CCF69A22121693900BE5880 /* TemperatureProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCF69A12121693900BE5880 /* TemperatureProtocol.swift */; };
+		7CCF69A5212169CF00BE5880 /* TemperatureProtocolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCF69A4212169CF00BE5880 /* TemperatureProtocolTests.swift */; };
+		7CCF69A72121A83500BE5880 /* Double+TemperatureProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCF69A62121A83500BE5880 /* Double+TemperatureProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,8 +34,16 @@
 		7C3FA1BA21135D9800FF3C4F /* Unitless.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Unitless.h; sourceTree = "<group>"; };
 		7C3FA1BB21135D9800FF3C4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7C3FA1C021135D9800FF3C4F /* UnitlessTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitlessTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7C3FA1C521135D9800FF3C4F /* UnitlessTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitlessTests.swift; sourceTree = "<group>"; };
 		7C3FA1C721135D9800FF3C4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7C5A15CB2123708E00D1EE18 /* Temperature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temperature.swift; sourceTree = "<group>"; };
+		7C5A15CD212377D900D1EE18 /* TemperatureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureTests.swift; sourceTree = "<group>"; };
+		7C5A15CF2124448B00D1EE18 /* TemperatureFormatterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureFormatterProtocol.swift; sourceTree = "<group>"; };
+		7C5A15D12124481500D1EE18 /* TemperatureFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureFormatter.swift; sourceTree = "<group>"; };
+		7C5A15D3212448AE00D1EE18 /* TemperatureFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureFormatterTests.swift; sourceTree = "<group>"; };
+		7CB11B6921256CF800C4D796 /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		7CCF69A12121693900BE5880 /* TemperatureProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureProtocol.swift; sourceTree = "<group>"; };
+		7CCF69A4212169CF00BE5880 /* TemperatureProtocolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureProtocolTests.swift; sourceTree = "<group>"; };
+		7CCF69A62121A83500BE5880 /* Double+TemperatureProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+TemperatureProtocol.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +68,7 @@
 		7C3FA1AD21135D9800FF3C4F = {
 			isa = PBXGroup;
 			children = (
+				7CB11B6921256CF800C4D796 /* Package.swift */,
 				7C3FA1B921135D9800FF3C4F /* Unitless */,
 				7C3FA1C421135D9800FF3C4F /* UnitlessTests */,
 				7C3FA1B821135D9800FF3C4F /* Products */,
@@ -71,6 +87,7 @@
 		7C3FA1B921135D9800FF3C4F /* Unitless */ = {
 			isa = PBXGroup;
 			children = (
+				7CCF69A02121690700BE5880 /* Temperature */,
 				7C3FA1BA21135D9800FF3C4F /* Unitless.h */,
 				7C3FA1BB21135D9800FF3C4F /* Info.plist */,
 			);
@@ -80,10 +97,32 @@
 		7C3FA1C421135D9800FF3C4F /* UnitlessTests */ = {
 			isa = PBXGroup;
 			children = (
-				7C3FA1C521135D9800FF3C4F /* UnitlessTests.swift */,
+				7CCF69A3212169B900BE5880 /* Temperature */,
 				7C3FA1C721135D9800FF3C4F /* Info.plist */,
 			);
 			path = UnitlessTests;
+			sourceTree = "<group>";
+		};
+		7CCF69A02121690700BE5880 /* Temperature */ = {
+			isa = PBXGroup;
+			children = (
+				7CCF69A12121693900BE5880 /* TemperatureProtocol.swift */,
+				7CCF69A62121A83500BE5880 /* Double+TemperatureProtocol.swift */,
+				7C5A15CB2123708E00D1EE18 /* Temperature.swift */,
+				7C5A15CF2124448B00D1EE18 /* TemperatureFormatterProtocol.swift */,
+				7C5A15D12124481500D1EE18 /* TemperatureFormatter.swift */,
+			);
+			path = Temperature;
+			sourceTree = "<group>";
+		};
+		7CCF69A3212169B900BE5880 /* Temperature */ = {
+			isa = PBXGroup;
+			children = (
+				7CCF69A4212169CF00BE5880 /* TemperatureProtocolTests.swift */,
+				7C5A15CD212377D900D1EE18 /* TemperatureTests.swift */,
+				7C5A15D3212448AE00D1EE18 /* TemperatureFormatterTests.swift */,
+			);
+			path = Temperature;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,6 +187,7 @@
 				TargetAttributes = {
 					7C3FA1B621135D9800FF3C4F = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1000;
 					};
 					7C3FA1BF21135D9800FF3C4F = {
 						CreatedOnToolsVersion = 10.0;
@@ -194,6 +234,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CCF69A72121A83500BE5880 /* Double+TemperatureProtocol.swift in Sources */,
+				7CCF69A22121693900BE5880 /* TemperatureProtocol.swift in Sources */,
+				7C5A15CC2123708E00D1EE18 /* Temperature.swift in Sources */,
+				7C5A15D22124481500D1EE18 /* TemperatureFormatter.swift in Sources */,
+				7C5A15D02124448B00D1EE18 /* TemperatureFormatterProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,7 +246,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7C3FA1C621135D9800FF3C4F /* UnitlessTests.swift in Sources */,
+				7C5A15CE212377D900D1EE18 /* TemperatureTests.swift in Sources */,
+				7CCF69A5212169CF00BE5880 /* TemperatureProtocolTests.swift in Sources */,
+				7C5A15D4212448AE00D1EE18 /* TemperatureFormatterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,6 +387,7 @@
 		7C3FA1CC21135D9800FF3C4F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -354,6 +402,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.twoablog.Unitless;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
@@ -361,6 +410,7 @@
 		7C3FA1CD21135D9800FF3C4F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -382,6 +432,7 @@
 		7C3FA1CF21135D9800FF3C4F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = UnitlessTests/Info.plist;
@@ -395,6 +446,7 @@
 		7C3FA1D021135D9800FF3C4F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = UnitlessTests/Info.plist;
